@@ -1,0 +1,32 @@
+# services:
+#   postgres:
+#     image: postgres:15
+#     container_name: postgres-1
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: mysecretpassword
+#       POSTGRES_DB: kbet_db
+#     ports:
+#       - "5401:5401"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:
+
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: kbet
+    ports:
+      - "5401:5432"  # Mapping container's internal port 5432 to host's port 5401
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
