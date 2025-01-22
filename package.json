@@ -4,8 +4,10 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
+    "build": "tsc",
+    "start": "node ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon ./src/index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +25,12 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-proposal-decorators": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@types/node": "^22.10.7",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3"
   }
 }

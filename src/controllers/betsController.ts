@@ -1,4 +1,6 @@
-const placeBet = async(req, res) => {
+import { Request, Response } from "express";
+
+export const placeBet = async(req: Request, res: Response) => {
     try {
         const { userId, gameId, betAmount, outcome } = req.body;
 
@@ -18,4 +20,3 @@ const placeBet = async(req, res) => {
     }
 };
 
-module.exports = { placeBet };

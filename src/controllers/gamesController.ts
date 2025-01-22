@@ -1,7 +1,8 @@
-const axios = require('axios');
+import { Request, Response } from "express";
+import axios from "axios";
 
 // Fetch Live games
-const fetchLiveGames = async (req, res) => {
+export const fetchLiveGames = async (req: Request, res: Response): Promise<void> => {
     try {
         const response = await axios.get('https://lichess.org/api/tv/channels');
         res.status(200).json(response.data)
@@ -10,5 +11,3 @@ const fetchLiveGames = async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch games' })
     }
 };
-
-module.exports = { fetchLiveGames };

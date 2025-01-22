@@ -1,4 +1,6 @@
-const getUserProfile = async (req, res) => {
+import { Request, Response } from "express";
+
+export const getUserProfile = async (req: Request, res: Response): Promise<void> => {
     try {
         const userId = req.params.id;
 
@@ -14,7 +16,7 @@ const getUserProfile = async (req, res) => {
 };
 
 // Update user balance
-const updateUserBalance = async (req, res) => {
+export const updateUserBalance = async (req: Request, res: Response) => {
     try {
         const userId = req.params.id;
         const { newBalance } = req.body;
@@ -33,4 +35,3 @@ const updateUserBalance = async (req, res) => {
     }
 }
 
-module.exports = { getUserProfile, updateUserBalance };
