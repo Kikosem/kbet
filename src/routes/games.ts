@@ -1,12 +1,3 @@
-// const express = require('express');
-// const { fetchLiveGames } = require('../controllers/gamesController');
-// const router = express.Router();
-
-//  // GET: Fetch live fetchLiveGames
-//  router.get('/', fetchLiveGames);
-
-//  module.exports = router;
-
 import express, { Request, Response } from 'express';
 import { fetchLiveGames } from '../controllers/gamesController';
 

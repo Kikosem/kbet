@@ -2,6 +2,12 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { User } from "./User"
 import { Game } from "./Game"
 
+export enum BetOutcome {
+    WIN = "win",
+    LOSE = "lose",
+    UNSETTLED = "unsettled"
+}
+
 @Entity()
 export class Bet {
     @PrimaryGeneratedColumn()
@@ -19,8 +25,13 @@ export class Bet {
     @Column({ type: "float" })
     odds!: number;
 
-    @Column({ nullable: true })
-    outcome?: "win" | "lose" | null; //"win", "lose", or null (if unsettled)
+    @Column({ 
+        type: "enum",
+        enum: BetOutcome,
+        nullable: true,
+        default: BetOutcome.UNSETTLED
+    })
+    outcome?: BetOutcome;
 
     @Column({ default: false })
     settled?: boolean;

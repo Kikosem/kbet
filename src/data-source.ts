@@ -1,5 +1,9 @@
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
+import { User } from "./entity/User";
+import { Bet } from "./entity/Bet";
+import { Game } from "./entity/Game"
+
 
 dotenv.config();
 
@@ -13,8 +17,8 @@ const AppDataSource = new DataSource({
     database: "kbet",
     synchronize: true,
     logging: true,
-    entities: ["src/entity/**/*.js"],
-    migrations: ["src/migration/**/*.js"],
+    entities: ["src/entity/**/*.ts"],
+    migrations: ["src/migration/**/*.ts"],
   });
   
   export default AppDataSource;

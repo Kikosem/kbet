@@ -35,6 +35,7 @@ AppDataSource.initialize()
   .catch((error) => {
     console.error("Error connecting to database:", error);
   });
+  
 
 const port = process.env.PORT || 6000;
 app.listen(port, () => {
