@@ -8,6 +8,7 @@ import gamesRoutes from "./routes/games";
 import betsRoutes from "./routes/bets";
 import usersRoutes from "./routes/users";
 import liveGamesRoute from "./routes/liveGames";
+import signup from "./routes/signup"
 
 dotenv.config();
 
@@ -23,10 +24,16 @@ app.get("/health", (req: Request, res: Response) => {
   res.send("health check");
 });
 
+
+// Auth
+app.use("/api/auth", signup)
+
+
 app.use('/api/games', gamesRoutes);
 app.use('/api/bets', betsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api', liveGamesRoute);
+
 
 AppDataSource.initialize()
   .then(() => {
