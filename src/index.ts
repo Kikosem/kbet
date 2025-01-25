@@ -3,12 +3,13 @@ import dotenv from "dotenv";
 import express, { Request, Response } from "express";
 import cors from "cors";
 import axios from "axios";
-import AppDataSource from "./data-source"; // Assuming data-source.ts file is now in TypeScript
+import AppDataSource from "./data-source"; 
 import gamesRoutes from "./routes/games";
 import betsRoutes from "./routes/bets";
 import usersRoutes from "./routes/users";
 import liveGamesRoute from "./routes/liveGames";
 import signup from "./routes/signup"
+import login from "./auth/login"
 
 dotenv.config();
 
@@ -26,7 +27,9 @@ app.get("/health", (req: Request, res: Response) => {
 
 
 // Auth
-app.use("/api/auth", signup)
+app.use("/auth", signup)
+app.use("/auth", login)
+
 
 
 app.use('/api/games', gamesRoutes);
