@@ -10,8 +10,8 @@ export enum BetOutcome {
 
 @Entity()
 export class Bet {
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
 
     @ManyToOne(() => User, (user) => user.bets, { onDelete: "CASCADE" })
     user!: User;

@@ -10,6 +10,7 @@ import usersRoutes from "./routes/users";
 import liveGamesRoute from "./routes/liveGames";
 import signup from "./routes/signup"
 import login from "./auth/login"
+import authenticateUser from "./middleware/authenticateUser"
 
 dotenv.config();
 
@@ -32,9 +33,9 @@ app.use("/auth", login)
 
 
 
-app.use('/api/games', gamesRoutes);
-app.use('/api/bets', betsRoutes);
-app.use('/api/users', usersRoutes);
+app.use('/api/games', authenticateUser, gamesRoutes);
+app.use('/api/bets', authenticateUser, betsRoutes);
+app.use('/api/users', authenticateUser, usersRoutes);
 app.use('/api', liveGamesRoute);
 
 

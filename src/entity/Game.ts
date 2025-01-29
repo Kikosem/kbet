@@ -3,8 +3,8 @@ import { Bet } from "./Bet";
 
 @Entity()
 export class Game {
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
 
    @Column()
    gameId!: string; // From Lichess API
